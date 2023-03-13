@@ -4,6 +4,44 @@
         "error":"/dev/null",
         "loglevel":"none"
     },
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+        {
+            "inboundTag": [
+            "api"
+            ],
+            "outboundTag": "api",
+            "type": "field"
+        },
+        {
+            "ip": [
+            "geoip:ir"
+            ],
+            "outboundTag": "blocked",
+            "type": "field"
+        },
+        {
+            "domain": [
+            "geosite:category-porn"
+            ],
+            "outboundTag": "blocked",
+            "type": "field"
+        },
+        {
+            "outboundTag": "blocked",
+            "protocol": [
+            "bittorrent"
+            ],
+            "type": "field"
+        }
+        ]   
+    },
+    "dns":{
+        "servers":[
+            "https+local://8.8.8.8/dns-query"
+        ]
+    },
     "inbounds":[
         {
             "port":8080,
@@ -209,48 +247,12 @@
             }
         }   
     ],
-    "dns":{
-        "servers":[
-            "https+local://8.8.8.8/dns-query"
-        ]
-    },
     "outbounds":[
         {
             "protocol":"freedom"
         }
     ],
-    "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
-        "ip": [
-          "geoip:ir"          
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
-      {
-        "domain": [
-          "geosite:category-porn"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
-      {
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ],
-        "type": "field"
-      }
-    ]
-  },
-  "stats": {}
+    "stats": {},
+    "reverse": null,
+    "fakeDns": null
 }
