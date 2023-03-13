@@ -1,216 +1,245 @@
 {
-  "log": null,
-  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
-        "ip": [
-          "geoip:ir"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
-      {
-        "domain": [
-          "geosite:category-porn"
-        ],
-        "outboundTag": "blocked",
-        "type": "field"
-      },
-      {
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ],
-        "type": "field"
-      }
-    ]
-  },
-  "dns": null,
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 62789,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1"
-      },
-      "streamSettings": null,
-      "tag": "api",
-      "sniffing": null
-    },
-    {
-      "listen": null,
-      "port": 16820,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "e8386623-e8ed-4192-a27a-c26917ceedf2",
-            "email": "",
-            "flow": ""
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": []
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "path": "/",
-          "headers": {},
-          "acceptProxyProtocol": false
+    "log": null,
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+        {
+            "inboundTag": [
+            "api"
+            ],
+            "outboundTag": "api",
+            "type": "field"
+        },
+        {
+            "ip": [
+            "geoip:ir"
+            ],
+            "outboundTag": "blocked",
+            "type": "field"
+        },
+        {
+            "domain": [
+            "geosite:category-porn"
+            ],
+            "outboundTag": "blocked",
+            "type": "field"
+        },
+        {
+            "outboundTag": "blocked",
+            "protocol": [
+            "bittorrent"
+            ],
+            "type": "field"
         }
-      },
-      "tag": "inbound-16820",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
+        ]   
     },
-    {
-      "listen": null,
-      "port": 45712,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "8806e25a-d69c-4125-da86-a6489985a436",
-            "email": "8e30.love@xray.com",
-            "flow": ""
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": []
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "path": "/",
-          "headers": {},
-          "acceptProxyProtocol": false
-        }
-      },
-      "tag": "inbound-45712",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "listen": null,
-      "port": 33234,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "77f5400b-fe3c-4ff6-87ff-5092bcaea88b",
-            "email": "3Fve.love@xray.com",
-            "flow": ""
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": []
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "path": "/",
-          "headers": {},
-          "acceptProxyProtocol": false
-        }
-      },
-      "tag": "inbound-33234",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "listen": null,
-      "port": 29614,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "d1f9a365-d51c-4f58-9f50-1d525c0f4dac",
-            "email": "kKNe.love@xray.com",
-            "alterId": 0
-          }
-        ],
-        "disableInsecureEncryption": false
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "path": "/",
-          "headers": {},
-          "acceptProxyProtocol": false
-        }
-      },
-      "tag": "inbound-29614",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    },
-    {
-      "listen": null,
-      "port": 24267,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "d8a407bb-b077-4a82-b138-a5b860a4dd88",
-            "email": "QWru.love@xray.com",
-            "alterId": 0
-          }
-        ],
-        "disableInsecureEncryption": false
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "none",
-        "wsSettings": {
-          "path": "/",
-          "headers": {},
-          "acceptProxyProtocol": false
-        }
-      },
-      "tag": "inbound-24267",
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    }
-  ],
-  "outbounds": [
+    "dns": null,
+    "inbounds":[
+        {
+            "port":8080,
+            "protocol":"vless",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"uuid",
+                        "flow":"xtls-rprx-direct"
+                    }
+                ],
+                "decryption":"none",
+                "fallbacks":[
+                    {
+                        "dest":9999
+                    },
+                    {
+                        "path":"/uuid-vl",
+                        "dest":20000
+                    },
+                    {
+                        "path":"/uuid-vm",
+                        "dest":10000
+                    },
+                    {
+                        "path":"/uuid-tr",
+                        "dest":30000
+                    },
+                    {
+                        "path":"/uuid-ss",
+                        "dest":40000
+                    },
+                    {
+                        "path":"/uuid-so",
+                        "dest":50000
+                    }
+                ]
+            },
+            "streamSettings":{
+                "network":"tcp"
+            }
+        },
+        {
+            "port":9999,
+            "listen":"127.0.0.1",
+            "protocol":"vless",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"uuid"
+                    }
+                ],
+                "decryption":"none"
+            },
+            "streamSettings":{
+                "network":"ws",
+                "security":"none"
+            }
+        },
+        {
+            "port":20000,
+            "listen":"127.0.0.1",
+            "protocol":"vless",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"uuid",
+                        "level":0,
+                        "email":"argo@xray"
+                    }
+                ],
+                "decryption":"none"
+            },
+            "streamSettings":{
+                "network":"ws",
+                "security":"none",
+                "wsSettings":{
+                    "path":"/uuid-vl"
+                }
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "metadataOnly":false
+            }
+        },
+        {
+            "port":10000,
+            "listen":"127.0.0.1",
+            "protocol":"vmess",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"uuid",
+                        "alterId":0
+                    }
+                ]
+            },
+            "streamSettings":{
+                "network":"ws",
+                "wsSettings":{
+                    "path":"/uuid-vm"
+                }
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "metadataOnly":false
+            }
+        },
+        {
+            "port":30000,
+            "listen":"127.0.0.1",
+            "protocol":"trojan",
+            "settings":{
+                "clients":[
+                    {
+                        "password":"uuid"
+                    }
+                ]
+            },
+            "streamSettings":{
+                "network":"ws",
+                "security":"none",
+                "wsSettings":{
+                    "path":"/uuid-tr"
+                }
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "metadataOnly":false
+            }
+        },
+        {
+            "port":40000,
+            "listen":"127.0.0.1",
+            "protocol":"shadowsocks",
+            "settings":{
+                "clients":[
+                    {
+                        "method":"chacha20-ietf-poly1305",
+                        "password":"uuid"
+                    }
+                ],
+                "decryption":"none"
+            },
+            "streamSettings":{
+                "network":"ws",
+                "wsSettings":{
+                    "path":"/uuid-ss"
+                }
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "metadataOnly":false
+            }
+        },       
+         {
+            "port":50000,
+            "listen":"127.0.0.1",
+            "protocol":"socks",
+            "settings":{
+                "auth":"password",
+                "accounts":[
+                    {
+                        "user": "uuid",        
+                        "pass": "uuid"   
+                    }
+                ]
+            },
+            "streamSettings":{
+                "network":"ws",
+                "wsSettings":{
+                    "path":"/uuid-so"
+                }
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+               "metadataOnly":false
+            }
+        }   
+    ],
+    "outbounds": [
     {
       "protocol": "freedom",
       "settings": {}
@@ -220,23 +249,23 @@
       "settings": {},
       "tag": "blocked"
     }
-  ],
-  "transport": null,
-  "policy": {
-    "system": {
-      "statsInboundDownlink": true,
-      "statsInboundUplink": true
-    }
-  },
-  "api": {
-    "services": [
-      "HandlerService",
-      "LoggerService",
-      "StatsService"
     ],
-    "tag": "api"
-  },
-  "stats": {},
-  "reverse": null,
-  "fakeDns": null
+    "transport": null,
+    "policy": {
+        "system": {
+            "statsInboundDownlink": true,
+            "statsInboundUplink": true
+        }
+    },
+    "api": {
+        "services": [
+            "HandlerService",
+            "LoggerService",
+            "StatsService"
+        ],
+        "tag": "api"
+    },
+    "stats": {},
+    "reverse": null,
+    "fakeDns": null
 }
