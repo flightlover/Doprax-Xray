@@ -6,7 +6,6 @@ xpid=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 8)
 [ ! -s $nx.zip ] && wget -O $nx.zip https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip
 unzip $nx.zip xray && rm -f $nx.zip
 wget -N https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
-wget -N https://github.com/flightlover/Doprax-Xray/releases/download/geosite/geosite.dat
 chmod a+x xray && mv xray $xpid
 sed -i "s/uuid/$uuid/g" ./config.json
 sed -i "s/uuid/$uuid/g" /etc/nginx/nginx.conf
