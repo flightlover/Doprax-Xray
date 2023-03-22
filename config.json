@@ -15,6 +15,13 @@
         "domainStrategy": "IPIfNonMatch",
         "rules": [
         {
+            "inboundTag": [
+            "api"
+            ],
+            "outboundTag": "api",
+            "type": "field"
+        },
+        {
           "type": "field",
           "outboundTag": "direct",
           "ip": ["geoip:telegram", "geoip:facebook", "geoip:twitter"]
