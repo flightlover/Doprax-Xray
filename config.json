@@ -3,37 +3,21 @@
     "routing": {
         "domainStrategy": "IPIfNonMatch",
         "rules": [
+        
         {
-            "inboundTag": [
-            "api"
-            ],
-            "outboundTag": "api",
-            "type": "field"
-        },
-        {
-            "ip": [
-            "geoip:ir"
-            ],
+            "ip": ["geoip:ir"],
             "outboundTag": "blocked",
             "type": "field"
         },
-        {
-            "domain": [
-            "geosite:category-porn"
-            ],
-            "outboundTag": "blocked",
-            "type": "field"
-        },
+        
         {
             "outboundTag": "blocked",
-            "protocol": [
-            "bittorrent"
-            ],
+            "protocol": ["bittorrent"],
             "type": "field"
         }
         ]   
     },
-    "dns": null,
+    
     "inbounds":[
         {
             "port":8080,
@@ -249,23 +233,5 @@
       "settings": {},
       "tag": "blocked"
     }
-    ],
-    "transport": null,
-    "policy": {
-        "system": {
-            "statsInboundDownlink": true,
-            "statsInboundUplink": true
-        }
-    },
-    "api": {
-        "services": [
-            "HandlerService",
-            "LoggerService",
-            "StatsService"
-        ],
-        "tag": "api"
-    },
-    "stats": {},
-    "reverse": null,
-    "fakeDns": null
+    ]
 }
