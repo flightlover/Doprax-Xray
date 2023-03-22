@@ -17,7 +17,7 @@
         }
         ]   
     },
-    
+    "dns": null,
     "inbounds":[
         {
             "port":8080,
