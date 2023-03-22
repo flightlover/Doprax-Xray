@@ -230,5 +230,23 @@
                "metadataOnly":false
             }
         }   
-    ]
+    ],
+    "transport": null,
+    "policy": {
+        "system": {
+            "statsInboundDownlink": true,
+            "statsInboundUplink": true
+        }
+    },
+    "api": {
+        "services": [
+            "HandlerService",
+            "LoggerService",
+            "StatsService"
+        ],
+        "tag": "api"
+    },
+    "stats": {},
+    "reverse": null,
+    "fakeDns": null
 }
