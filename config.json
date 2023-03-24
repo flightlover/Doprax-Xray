@@ -1,16 +1,5 @@
 {
     "log": null,
-    "outbounds": [
-    {
-      "protocol": "blackhole",
-      "tag": "blocked"
-    },
-    {
-      "protocol": "freedom",
-      "tag": "direct"
-    }
-    ]
-    
     "routing": {
         "domainStrategy": "IPIfNonMatch",
         "rules": [
@@ -22,14 +11,25 @@
             "type": "field"
         },
         {
-          "type": "field",
-          "outboundTag": "direct",
-          "ip": ["geoip:telegram", "geoip:facebook", "geoip:twitter"]
+            "ip": [
+            "geoip:ir"
+            ],
+            "outboundTag": "blocked",
+            "type": "field"
         },
         {
-          "type": "field",
-          "outboundTag": "direct",
-          "domain": ["google.com"]
+            "domain": [
+            "geosite:category-porn"
+            ],
+            "outboundTag": "blocked",
+            "type": "field"
+        },
+        {
+            "outboundTag": "blocked",
+            "protocol": [
+            "bittorrent"
+            ],
+            "type": "field"
         }
         ]   
     },
@@ -238,6 +238,17 @@
                "metadataOnly":false
             }
         }   
+    ],
+    "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
     ],
     "transport": null,
     "policy": {
