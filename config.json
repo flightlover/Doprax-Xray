@@ -21,7 +21,7 @@
             "domain": [
             "geosite:category-porn"
             ],
-            "outboundTag": "blocked",
+            "outboundTag": "direct",
             "type": "field"
         },
         {
